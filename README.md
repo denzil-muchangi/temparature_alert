@@ -1,16 +1,98 @@
-# temparature_alert
+# Temperature Alert Flutter App
 
-A new Flutter project.
+This Flutter application allows users to input a temperature and provides visual feedback and alerts based on predefined high and low thresholds.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Temperature Input**: Enter temperature values using a numerical input field.
+- **Dynamic Text Color**: The displayed temperature text changes color based on thresholds:
+  - **Red**: If the temperature is above the high threshold (30°C).
+  - **Blue**: If the temperature is below the low threshold (10°C).
+  - **Black**: If the temperature is within the normal range.
+- **Alert Dialogs**: Buttons appear when the temperature exceeds a threshold, allowing the user to trigger an alert dialog.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 1. Initial State
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This screenshot shows the app upon launch, with the temperature input field and the default temperature display.
+
+![Initial State Screenshot](screenshots/initial_state.png)
+
+### 2. High Temperature Alert
+
+This screenshot demonstrates the app when the entered temperature is above the high threshold. The temperature text should be red, and the "Show High Temperature Alert" button should be visible.
+
+![High Temperature Alert Screenshot](screenshots/high_temperature_alert.png)
+
+### 3. Low Temperature Alert
+
+This screenshot demonstrates the app when the entered temperature is below the low threshold. The temperature text should be blue, and the "Show Low Temperature Alert" button should be visible.
+
+![Low Temperature Alert Screenshot](screenshots/low_temperature_alert.png)
+
+### 4. Alert Dialog Example
+
+This screenshot shows an example of the alert dialog that appears when the "Show High Temperature Alert" or "Show Low Temperature Alert" button is pressed.
+
+![Alert Dialog Example Screenshot](screenshots/alert_dialog_example.png)
+
+## How to Run
+
+1. Clone this repository:
+   ```bash
+   git clone <repository_url>
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd temparature_alert
+   ```
+3. Get Flutter dependencies:
+   ```bash
+   flutter pub get
+   ```
+4. Run the app:
+   ```bash
+   flutter run
+   ```
+
+## Project Structure
+
+```
+.gitignore
+.metadata
+README.md
+analysis_options.yaml
+android\
+├── app\
+│   ├── build.gradle.kts
+│   └── src\
+├── build.gradle.kts
+├── gradle\
+│   └── wrapper\
+├── gradle.properties
+└── settings.gradle.kts
+lib\
+└── main.dart
+pubspec.lock
+pubspec.yaml
+test\
+└── widget_test.dart
+web\
+├── favicon.png
+├── icons\
+│   ├── Icon-192.png
+│   ├── Icon-512.png
+│   ├── Icon-maskable-192.png
+│   └── Icon-maskable-512.png
+├── index.html
+└── manifest.json
+```
+
+## Dependencies
+
+- Flutter SDK
+
+## Contributing
+
+Feel free to contribute to this project by submitting issues or pull requests.
