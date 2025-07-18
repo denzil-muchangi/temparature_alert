@@ -54,9 +54,44 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  double _temperature = 0.0;
+  final TextEditingController _temperatureController = TextEditingController();
+  final double _highThreshold = 30.0;
+  final double _lowThreshold = 10.0;
 
-  void _incrementCounter() {
+  @override
+  void dispose() {
+    _temperatureController.dispose();
+    super.dispose();
+  }
+
+  void _checkTemperature(String value) {
+    setState(() {
+      _temperature = double.tryParse(value) ?? 0.0;
+    });
+  }
+
+  void _showAlert(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Temperature Alert'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Removed _incrementCounter as it's not relevant to the temperature task.
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -104,19 +139,43 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            TextField(
+              controller: _temperatureController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                labelText: 'Enter Temperature',
+                border: OutlineInputBorder(),
+              ),
+              onChanged: _checkTemperature,
             ),
+            const SizedBox(height: 20),
+            Text(
+              'Current Temperature: ${_temperature.toStringAsFixed(1)}°C',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    color: _temperature > _highThreshold
+                        ? Colors.red
+                        : _temperature < _lowThreshold
+                            ? Colors.blue
+                            : Colors.black,
+                  ),
+            ),
+            if (_temperature > _highThreshold) ...[
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => _showAlert('Temperature is too high!'),
+                child: const Text('Show High Temperature Alert'),
+              ),
+            ] else if (_temperature < _lowThreshold) ...[
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () => _showAlert('Temperature is too low!'),
+                child: const Text('Show Low Temperature Alert'),
+              ),
+            ],
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
     );
   }
 }
