@@ -17,25 +17,33 @@ This Flutter application allows users to input a temperature and provides visual
 
 This screenshot shows the app upon launch, with the temperature input field and the default temperature display.
 
-![Initial State Screenshot](screenshots/initial_state.png)
+| Initial State |
+| :---: |
+| <img src="screenshots/initial_state.png" alt="App Login Page" width="250"/> |
 
 ### 2. High Temperature Alert
 
 This screenshot demonstrates the app when the entered temperature is above the high threshold. The temperature text should be red, and the "Show High Temperature Alert" button should be visible.
 
-![High Temperature Alert Screenshot](screenshots/high_temperature_alert.png)
+| High Temperature Alert |
+| :---: |
+| <img src="screenshots/high_temperature_alert.png" alt="App Login Page" width="250"/> |
 
 ### 3. Low Temperature Alert
 
 This screenshot demonstrates the app when the entered temperature is below the low threshold. The temperature text should be blue, and the "Show Low Temperature Alert" button should be visible.
 
-![Low Temperature Alert Screenshot](screenshots/low_temperature_alert.png)
+| Low Temperature Alert |
+| :---: |
+| <img src="screenshots/low_temperature_alert.png" alt="App Login Page" width="250"/> |
 
 ### 4. Alert Dialog Example
 
 This screenshot shows an example of the alert dialog that appears when the "Show High Temperature Alert" or "Show Low Temperature Alert" button is pressed.
 
-![Alert Dialog Example Screenshot](screenshots/alert_dialog_example.png)
+| Alert Dialog Example |
+| :---: |
+| <img src="screenshots/alert_dialog_example.png" alt="App Login Page" width="250"/> |
 
 ## How to Run
 
